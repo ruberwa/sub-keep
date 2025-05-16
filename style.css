@@ -1,0 +1,478 @@
+:root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --success: #27ae60;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 30px;
+    max-width: 1100px;
+    margin: auto;
+    background: #f5f7fa;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+
+header {
+    background-color: #eef2f7;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 25px;
+    box-shadow: var(--box-shadow);
+}
+
+
+h1 {
+    color: var(--primary);
+    text-align: center;
+    margin: 0;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 12px;
+    font-size: clamp(1.5rem, 4vw, 2.2rem); 
+}
+
+h1:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; 
+    height: 3px;
+    background: var(--secondary);
+    border-radius: 2px;
+}
+
+h2 {
+    margin-top: 40px;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    color: var(--primary);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--secondary);
+}
+
+.calculator-container {
+    background: white;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 30px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--primary);
+    display: block;
+}
+
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px 30px 10px 12px; 
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    transition: border 0.3s, box-shadow 0.3s;
+    background-color: white;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    box-sizing: border-box; 
+}
+
+input[type="number"]:focus {
+    border-color: var(--secondary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+
+select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    background-color: white;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    transition: border 0.3s, box-shadow 0.3s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232c3e50' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+    box-sizing: border-box;
+}
+
+select:focus {
+    border-color: var(--secondary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 20px;
+}
+
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    gap: 30px; 
+    flex-wrap: wrap;
+}
+
+.input-part {
+    position: relative;
+    flex: 1;
+    min-width: 200px; 
+    max-width: 300px; 
+}
+
+.save.input-part {
+    flex: 0 0 auto; 
+    min-width: auto; 
+    align-self: flex-end;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: var(--secondary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+
+button:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+#saveBtn {
+    background: var(--success);
+    white-space: nowrap;
+    padding: 10px 22px;
+}
+
+#saveBtn:hover {
+    background: #219653;
+}
+
+#clearFilterBtn {
+    background: var(--accent);
+}
+
+#clearFilterBtn:hover {
+    background: #c0392b;
+}
+
+
+.exchange-rate-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.exchange-info {
+    color: var(--primary);
+    font-size: 0.95rem;
+}
+
+#refreshRateBtn {
+    background: var(--secondary);
+}
+
+
+.table-container {
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch; 
+    border-radius: var(--border-radius);
+    background: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 0;
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 12px 8px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+tbody tr:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.saved-section {
+    margin-top: 20px;
+    background: white;
+    padding: 0;
+    overflow: hidden;
+}
+
+.saved-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 12px 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+}
+
+.saved-header h3 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+
+.remove-table-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    background: var(--accent);
+    border-radius: 0 0 0 8px;
+    box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.remove-table-btn:hover {
+    background: #c0392b;
+}
+
+#filterRow {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: white;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+#filterInput {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+#filterInput:focus {
+    border-color: var(--secondary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.price-highlight {
+    font-weight: bold;
+    color: var(--success);
+}
+
+.fee-highlight {
+    color: var(--accent);
+}
+
+.rwf-value {
+    font-weight: bold;
+    color: var(--success);
+    white-space: nowrap;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px; 
+    }
+    
+    header {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .calculator-container {
+        padding: 15px;
+    }
+    
+    .input-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .input-part {
+        max-width: none;
+        width: 100%;
+    }
+    
+    
+    h1 {
+        margin-bottom: 0;
+    }
+    
+    label {
+        font-size: 0.85rem;
+    }
+    
+    input[type="number"], select {
+        padding: 8px 30px 8px 10px;
+        font-size: 0.9rem;
+    }
+    
+    #saveBtn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+    
+    .exchange-rate-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #refreshRateBtn {
+        width: 100%;
+    }
+
+    
+    th,
+    td {
+        padding: 8px 4px;
+        font-size: 0.75rem;
+    }
+
+    th {
+        font-size: 0.7rem;
+    }
+
+    .price-highlight,
+    .fee-highlight,
+    .rwf-value {
+        font-size: 0.75rem;
+    }
+    
+    #filterRow {
+        padding: 12px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .save.input-part {
+        margin-top: 8px;
+    }
+    
+    label {
+        font-size: 0.8rem;
+    }
+    
+    input[type="number"], select {
+        padding: 8px 30px 8px 8px;
+        font-size: 0.85rem;
+    }
+    
+    th,
+    td {
+        padding: 6px 2px;
+        font-size: 0.7rem;
+    }
+
+    
+    th {
+        font-size: 0.65rem;
+        letter-spacing: 0;
+    }
+
+    
+    .price-highlight,
+    .fee-highlight,
+    .rwf-value {
+        font-size: 0.7rem;
+    }
+    
+    
+    #filterRow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #filterRow label {
+        width: 100%;
+    }
+    
+    #filterInput {
+        width: 100%;
+        min-width: 0;
+    }
+    
+    #clearFilterBtn {
+        width: 100%;
+    }
+}

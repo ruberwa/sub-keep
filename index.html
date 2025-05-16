@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SUB-KEEP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>SUB-KEEP</h1>
+    </header>
+
+    <div class="calculator-container">
+        <div class="input-row">
+            <div class="count input-part">
+                <label for="userCount">Number of Users:</label>
+                <input type="number" id="userCount" min="0" value="0" />
+            </div>
+
+            <div class="price input-part">
+                <label for="customPrice">Custom Subscription Price ($):</label>
+                <input type="number" id="customPrice" min="0" step="0.01" value="0" />
+            </div>
+
+            <div class="currency input-part">
+                <label for="currencySelect">Target Currency:</label>
+                <select id="currencySelect">
+                    <option value="RWF">Rwandan Franc (RWF)</option>
+                    <option value="USD">US Dollar (USD)</option>
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="GBP">British Pound (GBP)</option>
+                    <option value="CZK">Czech Koruna (CZK)</option>
+                    <option value="PLN">Polish Złoty (PLN)</option>
+                    <option value="DKK">Danish Krone (DKK)</option>
+                    <option value="KES">Kenyan Shilling (KES)</option>
+                    <option value="UGX">Ugandan Shilling (UGX)</option>
+                    <option value="TZS">Tanzanian Shilling (TZS)</option>
+                    <option value="NGN">Nigerian Naira (NGN)</option>
+                    <option value="ZAR">South African Rand (ZAR)</option>
+                    <option value="INR">Indian Rupee (INR)</option>
+                    <option value="CAD">Canadian Dollar (CAD)</option>
+                    <option value="AUD">Australian Dollar (AUD)</option>
+                    <option value="JPY">Japanese Yen (JPY)</option>
+                    <option value="CNY">Chinese Yuan (CNY)</option>
+                    <option value="BRL">Brazilian Real (BRL)</option>
+                </select>
+            </div>
+
+            <div class="save input-part">
+                <button id="saveBtn" title="Save current data">Save Current Data</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Sub</th>
+                        <th>Users</th>
+                        <th>Revenue</th>
+                        <th>Gateway</th>
+                        <th>VAT</th>
+                        <th>Keep ($)</th>
+                        <th>Keep (RWF)</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody"></tbody>
+            </table>
+        </div>
+        <div class="exchange-rate-controls">
+            <div class="exchange-info">
+                Current exchange rate: 1 USD = 1431.35 RWF (loading latest...)
+            </div>
+            <button id="refreshRateBtn" title="Get latest exchange rate">Refresh Exchange Rate</button>
+        </div>
+    </div>
+    <h2>Saved Tables</h2>
+
+    <div id="filterRow">
+        <label for="filterInput">Filter saved tables by number of users:</label>
+        <input type="number" id="filterInput" min="0" placeholder="Enter users to filter" />
+        <button id="clearFilterBtn" title="Clear filter">Clear Filter</button>
+    </div>
+    <div id="savedTables"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>
